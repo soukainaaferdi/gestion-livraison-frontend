@@ -1,0 +1,40 @@
+.login {
+    position: relative; /* ضرورية باش الطبقات يترتبوا */
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* باش الضباب ما يخرجش على الجناب */
+}
+
+/* هاد الجزء هو اللي فيه التصويرة والضباب */
+.login::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;   
+    /* التصويرة ديالك مع الـ Gradient */
+    /* background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%), 
+                url('c:/Users/hp/Downloads/WhatsApp Image 2026-03-31 at 01.25.52.jpeg');  */    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;  
+    /* --- تأثير الضباب والشفافية --- */
+    filter: blur(1px);      /* هادي هي اللي كتدير الضباب للتصويرة بوحدها */
+    opacity: 0.7;            /* هادي كتخلي التصويرة تبان خفيفة */
+    
+    transform: scale(1.1);   /* هادي ضرورية باش الحواف المضببة ما تبانش بيضاء فجناب الشاشة */
+    z-index: -1;             /* باش تبقى ديما تحت الـ Card وما تغطيش عليه */
+}
+/* الـ Card كيبقى نقي وما فيهش الضباب */
+.login-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 300px 790px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    z-index: 1; /* باش يكون فوق الطبقة المضببة */
+}

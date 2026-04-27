@@ -1,0 +1,186 @@
+/* ../styles/Commandes.css */
+
+.orders-container {
+    padding: 2rem;
+  
+    min-height: 100vh;
+}
+
+/* Card Container */
+.orders-container .card {
+    background: white;
+    border-radius: 20px !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04) !important;
+}
+
+.orders-container h2 {
+    font-weight: 700;
+    color: #1e293b;
+    letter-spacing: -0.5px;
+}
+
+/* Button New Order */
+.btn-success {
+    background-color: #10b981 !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    transition: 0.3s !important;
+}
+
+.btn-success:hover {
+    background-color: #059669 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Table Style */
+.table {
+    margin-top: 1rem;
+    vertical-align: middle;
+}
+
+.table thead th {
+    background-color: #f8fafc;
+    color: #64748b;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    padding: 15px;
+    border: none;
+}
+
+.table tbody td {
+    padding: 18px 15px;
+    color: #1e293b;
+    font-size: 14px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Badges Status */
+.badge {
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.status-delivered {
+    background-color: #dcfce7 !important;
+    color: #166534 !important;
+}
+
+.bg-primary {
+    background-color: #eef2ff !important;
+    color: #4338ca !important;
+}
+
+.bg-danger {
+    background-color: #fee2e2 !important;
+    color: #991b1b !important;
+}
+
+.bg-secondary {
+    background-color: #f1f5f9 !important;
+    color: #475569 !important;
+}
+
+/* Select Livreur Style */
+.form-select-sm {
+    border-radius: 8px !important;
+    border: 1.5px solid #e2e8f0 !important;
+    font-size: 13px !important;
+    color: #475569 !important;
+    background-color: #f8fafc !important;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.form-select-sm:focus {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+}
+
+.form-select-sm:disabled {
+    background-color: #f1f5f9 !important;
+    opacity: 0.7;
+}
+
+/* Dropdown ⋮ Action */
+.dropdown-item {
+    font-size: 14px;
+    font-weight: 500;
+    color: #475569;
+    transition: 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #f8fafc;
+    color: #6366f1;
+}
+
+.dropdown-item.text-danger:hover {
+    background-color: #fee2e2;
+}
+/* Search Wrapper */
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper i {
+    position: absolute;
+    left: 15px;
+    color: #94a3b8;
+    font-size: 1.1rem;
+}
+
+.search-wrapper .form-control {
+    height: 48px;
+    border-radius: 12px;
+    background-color: #f8fafc;
+}
+
+/* Pagination Style */
+.pagination .page-link {
+    border: none;
+    margin: 0 3px;
+    border-radius: 8px !important;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #6366f1;
+    color: white;
+}
+
+.btn-action {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #94a3b8;
+    padding: 0 10px;
+    transition: 0.2s;
+}
+
+.btn-action:hover {
+    color: #6366f1;
+}
+
+/* Re-styling Badges (Soft) */
+.badge-status {
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    display: inline-block;
+}
+.badge-statut.livre { background: #dcfce7; color: #15803d; }
+.badge-status.assigned { background: #e0e7ff; color: #4338ca; }
+.badge-status.pending { background: #f1f5f9; color: #475569; }
+.badge-status.cancelled { background: #fee2e2; color: #b91c1c; }

@@ -1,0 +1,487 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin@gmail.com",
+      "password": "123",
+      "role": "admin"
+    },
+    {
+      "id": "xk8q5ul2cEA",
+      "username": "ahmed@gmail.com",
+      "password": "ahmed",
+      "role": "livreur"
+    },
+    {
+      "id": "B1batCGqQDQ",
+      "username": "amine@gmail.com",
+      "password": "amine",
+      "role": "livreur"
+    },
+    {
+      "id": "udM0lCZ1pWo",
+      "username": "salma@gmail.com",
+      "password": "salma",
+      "role": "livreur"
+    },
+    {
+      "id": "adV0kXip_s8",
+      "username": "soukaina@gmail.com",
+      "password": "soukaina",
+      "role": "livreur"
+    },
+    {
+      "id": "WIENFQZLowo",
+      "username": "mohmmedamine@gmail.com",
+      "password": "amine",
+      "role": "livreur"
+    },
+    {
+      "id": "w1YVXxwQkDk",
+      "username": "brahim@gmail.com",
+      "password": "brahim",
+      "role": "livreur"
+    }
+  ],
+  "livreurs": [
+    {
+      "id": "61daUPDexck",
+      "name": "ahmedsaaid",
+      "phone": "06567898",
+      "email": "ahmed@gmail.com",
+      "vehicle": "Moto",
+      "status": "disponible"
+    },
+    {
+      "id": "8KaY7XOBCIQ",
+      "name": "salam",
+      "phone": "2345678",
+      "email": "salma@gmail.com",
+      "vehicle": "Moto",
+      "status": "disponible"
+    },
+    {
+      "id": "_5RQr8qfQyo",
+      "name": "soukaina aferd",
+      "phone": "0789654345",
+      "email": "soukaina@gmail.com",
+      "vehicle": "Moto",
+      "status": "disponible"
+    },
+    {
+      "id": "sYRDO9oU5JY",
+      "name": "mohmmedamine",
+      "phone": "34567890",
+      "email": "mohmmedamine@gmail.com",
+      "vehicle": "Moto",
+      "status": "disponible"
+    },
+    {
+      "id": "VmJVLJFIov8",
+      "name": "brahim",
+      "phone": "1234567890",
+      "email": "brahim@gmail.com",
+      "vehicle": "Moto",
+      "status": "disponible"
+    }
+  ],
+  "clients": [
+    {
+      "name": "soukaina aferdi",
+      "phone": "0654199723",
+      "address": "",
+      "id": "fGauYjCMIA4"
+    },
+    {
+      "name": "hanane",
+      "phone": "0789898989",
+      "address": "",
+      "id": "CjCTCyI6qqI"
+    },
+    {
+      "name": "ayaabaragh",
+      "phone": "0765434543",
+      "address": "",
+      "id": "qvfDdqRKua8"
+    },
+    {
+      "name": "fatima 23456",
+      "phone": "4567890",
+      "address": "",
+      "id": "DTdnyAhun3o"
+    },
+    {
+      "name": "hiba nirii",
+      "phone": "23456789",
+      "address": "",
+      "id": "VFCOQS4qsJ0"
+    },
+    {
+      "name": "uassir",
+      "phone": "234567890",
+      "address": "---",
+      "id": "irEOMIUOXk0"
+    }
+  ],
+  "orders": [
+    {
+      "client_id": "soukaina aferdi",
+      "product": "pc",
+      "prix_marchandise": 2999,
+      "frais_livraison": 30,
+      "total_price": 3029,
+      "destination": "rabat",
+      "status": "Livré",
+      "livreur_id": "ahmed@gmail.com",
+      "date": "2026-03-30T22:39:03.150Z",
+      "id": "S73YXX9nRZ8",
+      "is_merchant_paid": true
+    },
+    {
+      "client_id": "soukaina aferdi",
+      "product": "sbat",
+      "prix_marchandise": 100,
+      "frais_livraison": 30,
+      "total_price": 130,
+      "destination": "jadida",
+      "status": "Livré",
+      "livreur_id": "ahmed@gmail.com",
+      "date": "2026-03-30T22:49:29.499Z",
+      "id": "bW4ZY6nW6xc",
+      "is_merchant_paid": true
+    },
+    {
+      "client_id": "soukaina aferdi",
+      "product": "cafe",
+      "prix_marchandise": 200,
+      "frais_livraison": 30,
+      "total_price": 230,
+      "destination": "marakech",
+      "status": "Livré",
+      "livreur_id": "ahmed@gmail.com",
+      "date": "2026-03-30T22:50:08.496Z",
+      "id": "KyideGZhC0U",
+      "is_merchant_paid": true
+    },
+    {
+      "client_id": "hanane",
+      "product": "portable",
+      "prix_marchandise": 5000,
+      "frais_livraison": 30,
+      "total_price": 5030,
+      "destination": "rabat",
+      "status": "Livré",
+      "livreur_id": "ahmed@gmail.com",
+      "date": "2026-03-30T22:58:44.579Z",
+      "id": "XvpsnpMudr8",
+      "is_merchant_paid": true
+    },
+    {
+      "client_id": "hanane",
+      "product": "hw",
+      "prix_marchandise": 2345,
+      "frais_livraison": 30,
+      "total_price": 2375,
+      "destination": "casa",
+      "status": "Annulé",
+      "livreur_id": "ahmed@gmail.com",
+      "date": "2026-03-30T23:00:29.489Z",
+      "id": "ObIbtCKW1jY"
+    },
+    {
+      "client_id": "hanane",
+      "product": "cahier",
+      "prix_marchandise": 400,
+      "frais_livraison": 30,
+      "total_price": 430,
+      "destination": "jadida",
+      "status": "Livré",
+      "livreur_id": "ahmed@gmail.com",
+      "date": "2026-03-30T23:28:47.863Z",
+      "id": "6v7fM6EYuVM",
+      "is_merchant_paid": true
+    },
+    {
+      "client_id": "ayaabaragh",
+      "product": "phone",
+      "prix_marchandise": 1232,
+      "frais_livraison": 30,
+      "total_price": 1262,
+      "destination": "sbata",
+      "status": "Livré",
+      "livreur_id": "salma@gmail.com",
+      "date": "2026-04-01T20:16:25.832Z",
+      "id": "B1gZhG54h14",
+      "is_merchant_paid": true
+    },
+    {
+      "client_id": "fatima 23456",
+      "product": "coli",
+      "prix_marchandise": 100,
+      "frais_livraison": 30,
+      "total_price": 130,
+      "destination": "ru",
+      "status": "Livré",
+      "livreur_id": "salma@gmail.com",
+      "date": "2026-04-01T20:34:04.627Z",
+      "id": "an-z-aLiZB4",
+      "is_merchant_paid": true
+    },
+    {
+      "client_id": "soukaina aferdi",
+      "product": "fg",
+      "prix_marchandise": 3456,
+      "frais_livraison": 30,
+      "total_price": 3486,
+      "destination": "sdfgn",
+      "status": "Livré",
+      "livreur_id": "salma@gmail.com",
+      "date": "2026-04-01T20:47:38.753Z",
+      "id": "8R3tPOp-9mU",
+      "is_merchant_paid": true
+    },
+    {
+      "client_id": "hiba nirii",
+      "product": "cafton",
+      "prix_marchandise": 123,
+      "frais_livraison": 30,
+      "total_price": 153,
+      "destination": "gsdkyq",
+      "status": "Livré",
+      "livreur_id": "salma@gmail.com",
+      "date": "2026-04-02T00:08:58.119Z",
+      "id": "0QHs6txGdBQ"
+    },
+    {
+      "client_id": "hanane",
+      "product": "chausser",
+      "prix_marchandise": 234,
+      "frais_livraison": 30,
+      "total_price": 264,
+      "destination": "rabat",
+      "status": "Livré",
+      "livreur_id": "salma@gmail.com",
+      "date": "2026-04-03T22:45:09.631Z",
+      "id": "nCp_R2JnSQY",
+      "is_merchant_paid": true
+    },
+    {
+      "client_id": "ayaabaragh",
+      "product": "telephone",
+      "prix_marchandise": 123,
+      "frais_livraison": 30,
+      "total_price": 153,
+      "destination": "rej",
+      "status": "Livré",
+      "livreur_id": "brahim@gmail.com",
+      "date": "2026-04-04T15:55:50.931Z",
+      "id": "coEi0vNoF5U",
+      "is_merchant_paid": true
+    },
+    {
+      "client_id": "hiba nirii",
+      "product": "dfghj",
+      "prix_marchandise": 123,
+      "frais_livraison": 30,
+      "total_price": 153,
+      "destination": "rabat",
+      "status": "Livré",
+      "livreur_id": "mohmmedamine@gmail.com",
+      "date": "2026-04-04T16:31:18.440Z",
+      "id": "RoCGmB6KHYk"
+    },
+    {
+      "client_id": "hanane",
+      "product": "ew",
+      "prix_marchandise": 32,
+      "frais_livraison": 30,
+      "total_price": 62,
+      "destination": "rabat",
+      "status": "Annulé",
+      "livreur_id": "ahmed@gmail.com",
+      "date": "2026-04-04T16:38:08.087Z",
+      "id": "HbEwM5xffWg"
+    },
+    {
+      "client_id": "ayaabaragh",
+      "product": "cf",
+      "prix_marchandise": 213,
+      "frais_livraison": 30,
+      "total_price": 243,
+      "destination": "32",
+      "status": "Livré",
+      "livreur_id": "ahmed@gmail.com",
+      "date": "2026-04-04T16:38:27.375Z",
+      "id": "hCofJzy6kEc",
+      "is_merchant_paid": true
+    },
+    {
+      "client_id": "soukaina aferdi",
+      "product": "rtyui",
+      "prix_marchandise": 2345,
+      "frais_livraison": 30,
+      "total_price": 2375,
+      "destination": "casa",
+      "status": "assigned",
+      "livreur_id": "mohmmedamine@gmail.com",
+      "date": "2026-04-09T22:07:56.312Z",
+      "id": "cwMuJPA8MZ0"
+    },
+    {
+      "client_id": "soukaina aferdi",
+      "product": "rtyui",
+      "prix_marchandise": 45546,
+      "frais_livraison": 30,
+      "total_price": 45576,
+      "destination": "tresr",
+      "status": "pending",
+      "livreur_id": null,
+      "date": "2026-04-09T22:31:44.574Z",
+      "id": "KWDIJpvMGNk"
+    },
+    {
+      "seller_name": "شاةثي",
+      "destinataire_name": "سخعنشهىش",
+      "destinataire_phone": "0678543454",
+      "destination": "ؤشسش",
+      "product": "ؤاخةلاقث",
+      "prix_marchandise": 23453,
+      "frais_livraison": 30,
+      "total_price": 23483,
+      "status": "pending",
+      "livreur_id": null,
+      "date": "2026-04-10T14:33:50.056Z",
+      "id": "G8zNTQhL8Zk"
+    },
+    {
+      "seller_name": "uassir",
+      "destinataire_name": "ikram",
+      "destinataire_phone": "078965323",
+      "destination": "ain chok",
+      "product": "cahier",
+      "prix_marchandise": "309",
+      "frais_livraison": 30,
+      "total_price": 339,
+      "status": "Livré",
+      "livreur_id": "ahmed@gmail.com",
+      "date": "2026-04-10T14:56:43.686Z",
+      "id": "FiPeYL897fg"
+    },
+    {
+      "seller_name": "uassir",
+      "destinataire_name": "ikram",
+      "destinataire_phone": "0789654345",
+      "destination": "ain chok",
+      "product": "jhy",
+      "prix_marchandise": "34567",
+      "frais_livraison": 30,
+      "clientId": "irEOMIUOXk0",
+      "total_price": 34597,
+      "status": "Livré",
+      "livreur_id": "ahmed@gmail.com",
+      "date": "2026-04-10T15:04:36.951Z",
+      "id": "624sWrFVLkU",
+      "is_merchant_paid": true,
+      "is_paid": true
+    },
+    {
+      "clientId": "irEOMIUOXk0",
+      "seller_name": "uassir",
+      "destinataire_name": "hiba",
+      "destinataire_phone": "234567890-",
+      "destination": "jadida",
+      "product": "style",
+      "prix_marchandise": 100,
+      "frais_livraison": 30,
+      "total_price": 130,
+      "status": "Livré",
+      "livreur_id": "salma@gmail.com",
+      "date": "2026-04-10T15:27:22.863Z",
+      "is_merchant_paid": false,
+      "id": "xfYq4wt7nO8",
+      "is_paid": true
+    },
+    {
+      "clientId": "irEOMIUOXk0",
+      "seller_name": "uassir",
+      "destinataire_name": "saad",
+      "destinataire_phone": "456789",
+      "destination": "fes",
+      "product": "wetyuqte",
+      "prix_marchandise": 200,
+      "frais_livraison": "50",
+      "total_price": 250,
+      "status": "Livré",
+      "livreur_id": "soukaina@gmail.com",
+      "date": "2026-04-10T15:31:11.037Z",
+      "is_merchant_paid": false,
+      "id": "m4smNhFwkC0",
+      "is_paid": true
+    },
+    {
+      "clientId": "VFCOQS4qsJ0",
+      "seller_name": "hiba nirii",
+      "destinataire_name": "chahd",
+      "destinataire_phone": "3456789",
+      "destination": "yuu",
+      "product": "rtyui",
+      "prix_marchandise": 123,
+      "frais_livraison": 30,
+      "total_price": 153,
+      "status": "Annulé",
+      "livreur_id": "ahmed@gmail.com",
+      "date": "2026-04-10T16:24:45.622Z",
+      "is_merchant_paid": false,
+      "id": "FLoddWKff0E"
+    },
+    {
+      "clientId": "fGauYjCMIA4",
+      "seller_name": "soukaina aferdi",
+      "destinataire_name": "rachida",
+      "destinataire_phone": "0789654567",
+      "destination": "brchd",
+      "product": "trident",
+      "prix_marchandise": 345,
+      "frais_livraison": 30,
+      "total_price": 375,
+      "status": "pending",
+      "livreur_id": null,
+      "date": "2026-04-20T20:48:28.967Z",
+      "is_merchant_paid": false,
+      "id": "IzPpRBqaJOo"
+    },
+    {
+      "clientId": "DTdnyAhun3o",
+      "seller_name": "fatima 23456",
+      "destinataire_name": "rachida",
+      "destinataire_phone": "0789654567",
+      "destination": "brchd",
+      "product": "trident",
+      "prix_marchandise": 345,
+      "frais_livraison": 30,
+      "total_price": 375,
+      "status": "pending",
+      "livreur_id": null,
+      "date": "2026-04-20T20:51:47.656Z",
+      "is_merchant_paid": false,
+      "id": "7BsX4XXpyHI"
+    },
+    {
+      "clientId": "VFCOQS4qsJ0",
+      "seller_name": "hiba nirii",
+      "destinataire_name": "rachida",
+      "destinataire_phone": "0789654567",
+      "destination": "brchd",
+      "product": "trident",
+      "prix_marchandise": 345,
+      "frais_livraison": 30,
+      "total_price": 375,
+      "status": "pending",
+      "livreur_id": null,
+      "date": "2026-04-20T22:22:54.446Z",
+      "is_merchant_paid": false,
+      "id": "BVVa8GqN9qw"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

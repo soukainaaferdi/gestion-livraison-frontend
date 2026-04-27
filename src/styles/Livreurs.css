@@ -1,0 +1,185 @@
+.transition-all {
+    transition: all 0.5s ease-in-out; /* هادي هي اللي كتدير الحركة ديال التصغير */
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.livreur-card {
+    background: white;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.livreur-card:hover {
+    transform: translateY(-3px);
+    border-color: #fec601;
+}
+
+.border-primary-active {
+    border-color: #0d6efd !important;
+    background-color: #f0f7ff;
+}
+
+.large-avatar {
+    width: 120px;
+    height: 120px;
+    background: #eee;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-soft-success {
+    background-color: #e8f5e9;
+}
+/* ../styles/Livreurs.css */
+
+.livreurs-page {
+    
+    min-height: 100vh;
+}
+
+/* L-mouchkil dyal l-dicalage: n-asta3mlo row-gap ou col-gap */
+.livreurs-page .row.g-4 {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
+}
+
+.livreurs-page .transition-all {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Style dyal les Cards */
+.livreur-card {
+    background: white;
+    border: 1px solid #f1f5f9 !important;
+    border-radius: 16px !important;
+    transition: 0.3s ease;
+    cursor: pointer;
+    height: 100%; /* Bach ga3 les cards ikouno nfs l-toul */
+}
+
+.livreur-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05) !important;
+    border-color: #6366f1 !important;
+}
+
+/* Ila kiti m-selectionni livreur */
+.border-primary-active {
+    border: 2px solid #6366f1 !important;
+    background-color: #f5f7ff !important;
+}
+
+/* --- Alwan dyal l-Status (B7al l-Orders) --- */
+.badge-status {
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* Khdar b7al "Livré" */
+.badge-status.delivered, .bg-success {
+    background-color: #dcfce7 !important;
+    color: #166534 !important;
+}
+
+/* 7mar b7al "Annulé" */
+.badge-status.cancelled, .bg-danger {
+    background-color: #fee2e2 !important;
+    color: #991b1b !important;
+}
+
+/* Avatar Style */
+.avatar-mini {
+    width: 45px;
+    height: 45px;
+    background: #f1f5f9;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.large-avatar {
+    width: 100px;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* Sticky Details Card */
+.sticky-top {
+    z-index: 10;
+}
+
+.bg-light.rounded-4 {
+    background-color: #f8fafc !important;
+    border: 1px solid #f1f5f9;
+}
+
+/* Status Small Dot (Indicator) */
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 12px;
+    border: 2px solid white;
+}
+.status-indicator.disponible { background-color: #22c55e; }
+.status-indicator.En-route { background-color: #ef4444; }
+/* Container dial l-input bach t-ji fiha l-icon sghira */
+.search-wrapper-small {
+    position: relative;
+    width: 250px; /* T9dri t-7kmi f l-3ard dyalha hna */
+}
+
+.search-icon-small {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+/* L-input r9iqa */
+.search-input-small {
+    height: 38px !important; /* Had l-height hwa li kiy-rddha r9iqa */
+    padding-left: 35px !important;
+    font-size: 13px !important;
+    border-radius: 10px !important;
+    border: 1.5px solid #e2e8f0 !important;
+    background-color: #fff !important;
+}
+
+/* L-bouton b7al style dial table */
+.btn-add-small {
+    height: 38px !important;
+    display: flex;
+    align-items: center;
+    padding: 0 20px !important;
+    
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+}
+
+/* Ila knti khddama b Bootstrap 5, had l-class kat-3awn f l-alignment */
+.align-items-center {
+    align-items: center !important;
+}

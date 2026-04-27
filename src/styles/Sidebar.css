@@ -1,0 +1,153 @@
+/* Sidebar.css */
+.sidebar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80px; /* rj3naha 80px bach tji nqiya */
+    background-color: #ffffff;
+    border-right: 1px solid #dfdbdb;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 30px 0;
+    z-index: 1000;
+
+}
+
+.logo-icon {
+    color: #a52df4;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav.flex-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* masafa bin icons */
+    width: 100%;
+    align-items: center;
+}
+
+.nav-item-custom {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+/* HADA hwa l-sir dyal Bootstrap Icons */
+.nav-item-custom i {
+    font-size: 1.4rem; /* kbrna l-icon bach tban style dyalha zwin */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-item-custom.active {
+    background-color: #f5f3ff;
+    color: #7c3aed;
+}
+
+.nav-item-custom:hover {
+    color: #7c3aed;
+    background-color: #f9f9f9;
+}
+
+/* Tooltip (Pinterest Style) */
+.nav-item-custom span {
+    position: absolute;
+    left: 65px;
+    background-color: #333;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s ease-in-out;
+    pointer-events: none;
+    z-index: 1001;
+}
+.nav-item-custom:hover span {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(10px);
+}
+.logout-btn {
+    margin-top: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Darori bach span t-tba3ha */
+    color: black;
+    transition: 0.3s;
+    padding: 0;
+}
+
+/* Had wrapper hwa li ghadi y-centrer l-icon dyal bootstrap */
+.icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.logout-btn i {
+    font-size: 1.4rem; /* Nfs l-size dyal l-icons l-ekhrin */
+}
+.nav-item-custom:hover i {
+    -webkit-text-stroke: 1.2px currentColor;
+}
+.nav-item-custom i, 
+.logout-btn i {
+    font-size: 1.4rem; /* Kbrna l-size chwiya */
+    /* Hada hwa l-sir bash t-ghllidhom */
+    -webkit-text-stroke: 0.75px currentColor; 
+    
+    /* Ila bghiti t-zid t-ghllidhom ktr, rddha 1.2px aw 1.5px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Smiya dyal Logout (Tooltip) */
+.logout-btn span {
+    position: absolute;
+    left: 65px;
+    background-color: #333;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0; /* Khfya f l-owl */
+    visibility: hidden;
+    transition: 0.2s ease-in-out;
+    pointer-events: none;
+    z-index: 1001;
+}
+
+/* Fach t-hoveri tban smiya bo7dha f jnab */
+.logout-btn:hover span {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(10px);
+}
+
+.logout-btn:hover {
+    color: #7c3aed; /* Lawn l-khroj (optional) */
+}

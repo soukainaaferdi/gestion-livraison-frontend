@@ -1,0 +1,107 @@
+/* Container de la page AddOrder */
+.order-form-wrapper {
+    background-color: #f8fafc;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* Card Style */
+.form-card {
+    background: white;
+    border-radius: 24px;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+
+/* Header dyal l-form */
+.form-header {
+    background: #1e293b; /* Dark Slate */
+    padding: 25px;
+    text-align: center;
+}
+
+.form-header h3 {
+    color: #ffffff;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+/* Labels & Inputs */
+.form-label {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    border-radius: 12px;
+    border: 1.5px solid #e2e8f0;
+    padding: 12px 15px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #6366f1; /* Indigo */
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    outline: none;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-blue { color: #6366f1; }
+.title-green { color: #10b981; }
+
+/* Alert Box (Total) */
+.total-alert {
+    background: #eef2ff;
+    border: 1px dashed #6366f1;
+    color: #4338ca;
+    border-radius: 16px;
+    padding: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Buttons */
+.btn-confirm {
+    background: #6366f1;
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-confirm:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+}
+
+.btn-cancel {
+    background: white;
+    color: #64748b;
+    border: 1.5px solid #e2e8f0;
+    padding: 12px 30px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.btn-cancel:hover {
+    background: #f8fafc;
+    color: #1e293b;
+}

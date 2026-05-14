@@ -1,6 +1,250 @@
-.navbar{
- background: #7e13c1;
+/* MyMissions.css - نفس ألوان Dashboard */
+:root {
+    --indigo: #6366f1;
+    --indigo-dark: #4338ca;
+    --indigo-soft: #eef2ff;
+    --indigo-mid: #c7d2fe;
+    --emerald: #10b981;
+    --emerald-dark: #059669;
+    --emerald-soft: #ecfdf5;
+    --emerald-mid: #6ee7b7;
+    --amber: #f59e0b;
+    --amber-dark: #d97706;
+    --amber-soft: #fffbeb;
+    --rose: #f43f5e;
+    --rose-dark: #e11d48;
+    --rose-soft: #fff1f2;
+    --slate-800: #1e293b;
+    --slate-500: #64748b;
+    --slate-200: #e2e8f0;
+    --bg-main: rgb(253, 247, 255);
 }
-.deconnixion{
- background: #9bf338
+
+/* ===== WRAPPER ===== */
+.missions-page-wrapper {
+    background-color: var(--bg-main);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== HEADER ===== */
+.livreur-header {
+    background-color: #d18dff;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -20px; 
+    position: sticky;
+    z-index: 100;
+}
+
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 800;
+    background:  #ffffff;
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.user-email-display {
+    font-size: 13px;
+    color: var(--slate-500);
+    background: var(--indigo-soft);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-weight: 500;
+    border: 1px solid var(--indigo-mid);
+}
+
+/* ===== CONTENT ===== */
+.content-padding {
+    padding: 24px 20px;
+}
+
+/* ===== MISSION CARD ===== */
+.mission-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+}
+
+.mission-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.12);
+}
+
+/* ===== TOP INFO (Priority + Statut) ===== */
+.card-top-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.info-text {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 50px;
+    letter-spacing: 0.3px;
+}
+
+/* Priority badges */
+.priority-urgent {
+    background: var(--rose-soft);
+    color: var(--rose-dark);
+    border: 1px solid #fecdd3;
+}
+
+.priority-important {
+    background: #fff7ed;
+    color: #c2410c;
+    border: 1px solid #fed7aa;
+}
+
+.priority-normal {
+    background: var(--amber-soft);
+    color: var(--amber-dark);
+    border: 1px solid #fde68a;
+}
+
+/* ===== CARD CONTENT ===== */
+.mission-card p {
+    font-size: 14px;
+    color: var(--slate-800);
+    margin-bottom: 6px;
+}
+
+.mission-card p strong {
+    color: var(--slate-500);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 4px;
+}
+
+.product-name {
+    font-size: 16px !important;
+    font-weight: 700;
+    
+    margin: 8px 0;
+}
+
+.product-name strong {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--slate-500) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===== DETAILS BOX ===== */
+.details-box {
+    background: var(--indigo-soft);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin: 10px 0;
+    border: 1px solid var(--indigo-mid);
+}
+
+.details-box p {
+    margin-bottom: 4px !important;
+    font-size: 13px;
+}
+
+/* ===== PRICE TAG ===== */
+.price-tag {
+    font-size: 16px !important;
+    font-weight: 700;
+    color:black;
+   
+    /* padding: 8px 14px; */
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 6px;
+   
+}
+
+
+
+/* ===== ACTION BUTTONS ===== */
+.action-buttons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+.btn-outline-custom {
+    border: none;
+    border-radius: 10px;
+    padding: 9px 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.3px;
+}
+
+.btn-outline-custom.success {
+    background: var(--emerald-soft);
+    color: var(--emerald-dark);
+    border: 1px solid var(--emerald-mid);
+}
+.btn-outline-custom.success:hover {
+    background: var(--emerald);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-outline-custom.secondary {
+    background: var(--indigo-soft);
+    color: var(--indigo-dark);
+    border: 1px solid var(--indigo-mid);
+}
+.btn-outline-custom.secondary:hover {
+    background: var(--indigo);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-outline-custom.danger {
+    background: var(--rose-soft);
+    color: var(--rose-dark);
+    border: 1px solid #fecdd3;
+}
+.btn-outline-custom.danger:hover {
+    background: var(--rose);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* ===== EMPTY STATE ===== */
+
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .col-4 {
+        width: 100% !important;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .action-buttons-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .content-padding {
+        padding: 16px 12px;
+    }
 }

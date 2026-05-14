@@ -5,14 +5,15 @@ import { useNavigate } from 'react-router-dom';
 const AddLivreur = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        nom_complet: '', // بدلنا name لـ nom_complet
+        nom_complet: '', 
         phone: '',
         email: '',
         password: '',
+        zone:'',
     });
-
     const handleSubmit = async (e) => {
         e.preventDefault(); 
+        const token = localStorage.getItem("token");
         
         try {
             // صيفطنا الداتا نيشان لـ Laravel
@@ -21,14 +22,19 @@ const AddLivreur = () => {
             nom_complet: formData.nom_complet,
             telephone: formData.phone, // صيفطناها بـ telephone حيت Controller كيقلب عليها
             email: formData.email,
-            password: formData.password
+            password: formData.password,
+            zone: formData.zone,
+        },{
+            headers: {
+                'Authorization': `Bearer ${token}` // هادي هي الطريقة اليدوية
+            }
         });
             
-            alert("Livreur ajouté avec succès!");
+            alert("Livreur ajoute avec succes!");
             navigate('/Livreurs');
         } catch (err) {
             console.error(err);
-            alert("Erreur lors de l'ajout! Vérifiez la console.");
+            alert("Erreur");
         }
     };
 
@@ -57,6 +63,15 @@ const AddLivreur = () => {
                         <input type="text" className="form-control" 
                             onChange={(e) => setFormData({...formData, phone: e.target.value})} required />
                     </div>
+                    <div className="mb-3">
+                <label className="form-label">Zone de travail</label>
+                <select className="form-select" onChange={(e) => setFormData({...formData, zone: e.target.value})} required>
+                    <option value="">-- Sélectionner une zone --</option>
+                    <option value="Ain Sebaa">Ain Sebaa</option>
+                    <option value="Maarif">Maarif</option>
+                    <option value="Oulfa">Oulfa</option>
+                </select>
+            </div>
                     <button type="submit" className="btn btn-primary w-100 fw-bold">Créer le compte</button>
                 </form>
             </div>

@@ -151,3 +151,22 @@
 .logout-btn:hover {
     color: #7c3aed; /* Lawn l-khroj (optional) */
 }
+
+
+
+
+/* الحاوية الكبيرة */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: rgb(253, 247, 255);
+}
+
+/* ستايل خاص بالأدمن (Desktop) */
+.admin-layout {
+  margin-left: 80px; /* مساحة للسايدبار الجانبي */
+  width: calc(100% - 80px);
+  padding: 20px;
+}
+
+

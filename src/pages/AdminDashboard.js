@@ -10,20 +10,36 @@ const AdminDashboard = () => {
 
     useEffect(() => {
         const fetchAll = async () => {
-            const [ord, clt, liv] = await Promise.all([
-                axios.get('http://127.0.0.1:8000/api/orders'),
-                axios.get('http://127.0.0.1:8000/api/clients'),
-                axios.get('http://127.0.0.1:8000/api/livreurs')
+            const token = localStorage.getItem('token');
+          const config = {
+    headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json"
+    }
+};
+            try{
+
+             const [ord, clt, liv] = await Promise.all([
+                axios.get('http://127.0.0.1:8000/api/orders', config),
+                axios.get('http://127.0.0.1:8000/api/clients', config),
+                axios.get('http://127.0.0.1:8000/api/livreurs', config)
             ]);
-            setData({ orders: ord.data, clients: clt.data, livreurs: liv.data });
-            setLoading(false);
+                setData({ orders: ord.data, clients: clt.data, livreurs: liv.data });
+                setLoading(false);
+            }catch(error){
+                 console.error("Erreur lors du chargement des données:", error);
+                if (error.response?.status === 401) {
+                    alert("Session expirée. Veuillez vous reconnecter.");
+                    // تقدر تزيد هنا navigate('/login') إيلا بغيتي
+                }
+            }
         };
         fetchAll();
     }, []);
 
 const totalRevenue = data.orders
-    .filter(o => o.statut === "Livré")
-    .reduce((s, o) => s + (Number(o.prix_total) || 0), 0);
+    .filter(o => o.statut?.toLowerCase() === "livre") // ردينا كلشي صغير باش يطابق DB
+    .reduce((s, o) => s + (Number(o.frais_livraison) || 0), 0);
     const lastOrders = [...data.orders].reverse().slice(0, 5);
 
    const chartData = [
@@ -54,10 +70,10 @@ const totalRevenue = data.orders
                     { title: "Commandes", val: data.orders.length, icon: "bi-box-seam", color: "indigo" },
                     { title: "Clients", val: data.clients.length, icon: "bi-people", color: "emerald" },
                     { title: "Livreurs", val: data.livreurs.length, icon: "bi-bicycle", color: "amber" },
-                    { title: "Profit Net", val: totalRevenue + " DH", icon: "bi-wallet2", color: "rose" }
+                    { title: "Profit Net", val: `${totalRevenue.toFixed(2)} DH`, icon: "bi-wallet2", color: "rose" }
                 ].map((item, i) => (
                     <div className="col-md-3" key={i}>
-                        <div className="stat-card">
+                        <div className={`stat-card stat-${item.color}`}>
                             <div className={`icon-box bg-soft-${item.color}`}>
                                 <i className={`bi ${item.icon} text-${item.color} fs-4`}></i>
                             </div>
@@ -72,11 +88,11 @@ const totalRevenue = data.orders
 
             <div className="row g-4">
                 {/* 2. Chart Section */}
-                <div className="col-lg-7">
+                <div className="col-lg-4">
                     <div className="main-card h-100">
-                        <h5 className="fw-bold mb-4">Analyse des flux</h5>
-                        <div style={{ width: '100%', height: 300 }}>
-                            <ResponsiveContainer>
+                        <h5 className="fw-bold mb-4">Analyse des commandes</h5>
+                        <div className="chart-wrapper">
+                           <ResponsiveContainer width="100%" height="100%">
                                 <BarChart data={chartData}>
                                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
                                     <XAxis dataKey="name" axisLine={false} tickLine={false} />
@@ -93,37 +109,19 @@ const totalRevenue = data.orders
                     </div>
                 </div>
 
-                {/* 3. Top Livreurs */}
-                <div className="col-lg-5">
-                    <div className="main-card h-100">
-                        <h5 className="fw-bold mb-3">Top Livreurs</h5>
-                        <div className="livreurs-list">
-                            {data.livreurs.slice(0, 5).map((l, i) => (
-                                <div key={i} className="livreur-item">
-                                    <div className="avatar-circle">{l.name?.charAt(0)}</div>
-                                    <div className="ms-3 flex-grow-1">
-                                        <div className="fw-bold small">{l.name}</div>
-                                        {/* <div className="text-muted small status-indicator online" style={{fontSize: '10px'}}>{l.status}</div> */}
-                                    </div>
-                                    
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-                {/* 4. Recent Orders Table */}
-                <div className="col-12 mt-4">
-                    <div className="main-card">
+                {/* 3. dernier command */}
+                <div className="col-lg-8 ">
+                      <div className="main-card">
                         <div className="d-flex justify-content-between align-items-center mb-4">
-                            <h5 className="fw-bold mb-0">Dernières Activités</h5>
-                            <Link to="/orders" className="btn btn-indigo-light btn-sm">Voir tout</Link>
+                            <h5 className="fw-bold mb-0">Dernières commandes</h5>
+                            <Link to="/orders" className="btn btn-success btn-sm">Voir tout</Link>
                         </div>
                         <div className="table-responsive">
                             <table className="table custom-table align-middle">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>Nom</th>
                                         <th>Produit</th>
                                         <th>Client</th>
                                         <th>Prix</th>
@@ -134,6 +132,7 @@ const totalRevenue = data.orders
                                     {lastOrders.map(o => (
                                         <tr key={o.id}>
                                             <td className="fw-bold text-indigo">#{o.id}</td>
+                                             <td>{o.destinataire_name}</td>
                                             <td>{o.produit}</td>
                                             <td className="text-muted">{o.client_id}</td>
                                             <td className="fw-bold">{o.prix_total} DH</td>

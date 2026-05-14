@@ -1,0 +1,12 @@
+.badge.success { background: #dcfce7; color: #15803d; }
+.badge.info { background: #e0e7ff; color: #4338ca; }
+.badge.danger { background: #fee2e2; color: #b91c1c; }
+@media (max-width: 768px) {
+  .table th, .table td {
+    font-size: 0.75rem;
+  }
+
+  .container h3 {
+    font-size: 1.2rem;
+  }
+}

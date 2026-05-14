@@ -1,0 +1,77 @@
+/* الحاوية التحتانية - بحال ستايل الأدمن ولكن فالتلفون */
+.bottom-nav-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background-color: #d18dff;
+    border-top: 1px solid #dfdbdb; /* نفس الـ border ديال الأدمن */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+  
+}
+
+/* العنصر (الزر) */
+.nav-item-mobile {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 50px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+/* ستايل الأيقونات - نفس الـ Stroke اللي عجبك */
+.nav-item-mobile i {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-text-stroke: 0.75px currentColor; /* السر اللي كيخليها غليظة وشيك */
+}
+
+/* حالة الـ Active - نفس ألوان الأدمن */
+.nav-item-mobile.active {
+    background-color: #f5f3ff;
+    color: #7c3aed;
+}
+
+.nav-item-mobile.active i {
+    -webkit-text-stroke: 1.2px currentColor; /* كتغلاد شوية فاش كتكون active */
+}
+
+/* تسمية الأيقونة (اختيارية) */
+.nav-item-mobile span.label {
+    font-size: 10px;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+/* زر الخروج فالتلفون */
+.logout-mobile {
+    background: none;
+    border: none;
+    color: #000000; /* لون الخروج */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+.solde{
+    background: #eef2ff; border-color: #c7d2fe;
+}
+
+
+
+.stat-indigo { background: #eef2ff; border-color: #c7d2fe; }
+.stat-emerald { background: #ecfdf5; border-color: #a7f3d0; }
+.stat-amber { background: #fffbeb; border-color: #fde68a; }
+.stat-rose { background: #fff1f2; border-color: #fecdd3; }

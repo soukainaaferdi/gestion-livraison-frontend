@@ -6,66 +6,68 @@ import Commandes from "./pages/Commandes";
 import Livreurs from "./pages/Livreurs";
 import MyMissions from "./pages/MyMissions"; 
 import { Route, Routes, Navigate } from "react-router-dom";
-import { useState, useEffect } from "react";
 import Login from "./pages/login";
 import AddLivreur from "./pages/AddLivreur";
 import MerchantAccount from "./pages/MerchantAccount";
 import AddMarchand from "./pages/AddMarchand";
-
-
+import SidebarLivreur from "./components/sidebarLivreur";
+import Historique from "./pages/historique";
+import LivreurDashboard from "./pages/DashboarLivreur";
+import EditOrder from "./pages/EditOrder";
 function App() {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true); // باش نتفاداو الفلاش ديال صفحة Login
+  const token = localStorage.getItem("token");
+  const userData = localStorage.getItem("user");
+  
+  let user = null;
+  try {
+    user = userData ? JSON.parse(userData) : null;
+  } catch (e) {
+    // إذا كانت البيانات corrupted
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+  }
 
-  // هاد الدالة هي اللي غنعيطو ليها من صفحة Login ملي ينجح الدخول
-  const handleAuthChange = () => {
-    const loggedUser = localStorage.getItem("user");
-    if (loggedUser) {
-      setUser(JSON.parse(loggedUser));
-    } else {
-      setUser(null);
-    }
-  };
-
-  useEffect(() => {
-    handleAuthChange();
-    setLoading(false);
-  }, []);
-
-  if (loading) return null; // أو دير شي Spinner بسيط
-
-  // 1. إيلا ما كاينش User، كنعرضو غير صفحة الـ Login
-  if (!user) {
+  // ✅ تحقق أدق: token لازم يكون string غير فاضي
+  if (!token || token === "null" || token === "undefined" || !user) {
     return (
-      <Routes> 
-        {/* صيفطنا handleAuthChange كـ Prop لصفحة Login */}
-        <Route path="/login" element={<Login onLoginSuccess={handleAuthChange}/>}/>
+      <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     );
   }
 
-  // 2. إيلا كاين User، كنعرضو السيستيم على حساب الـ Role
+  const userRole = user?.role;
+
+  // ✅ إذا الرول مش معروف، رجعه للـ login
+  if (userRole !== "admin" && userRole !== "livreur") {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    return (
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
+    );
+  }
+
   return (
-    <div className="d-flex">
-      {/* الـ Sidebar غايطلع غير للأدمين */}
-      {user.role === "admin" && <Sidebar />}
-      
-   
-<div 
-  style={{ 
-    // Ghadi n-naqso l-margin l 75px hit sidebar mabqatch kbira
-    marginLeft: user.role === "admin" ? '80px' : '0', 
-    width: user.role === "admin" ? 'calc(100% - 75px)' : '100%',      
-    padding: '20px',      
-    minHeight: '100vh',
-    backgroundColor: 'rgb(253, 247, 255)',
-    transition: 'margin-left 0.3s ease' // bach tji smooth
-  }}
->
+    <div className={userRole === "admin" ? "d-flex" : "block"}>
+      {userRole === "admin" ? <Sidebar /> : <SidebarLivreur />}
+      <div
+        className={`main-content ${userRole === "admin" ? "admin-layout" : "livreur-layout"}`}
+        style={{
+          marginLeft: userRole === "admin" ? "80px" : "0",
+          paddingBottom: userRole === "livreur" ? "90px" : "20px",
+          width: userRole === "admin" ? "calc(100% - 80px)" : "100%",
+          padding: "20px",
+          minHeight: "100vh",
+          backgroundColor: "rgb(253, 247, 255)",
+          transition: "margin-left 0.3s ease",
+        }}
+      >
         <Routes>
-          {/* Routes للأدمين */}
-          {user.role === "admin" && (
+          {userRole === "admin" && (
             <>
               <Route path="/" element={<AdminDashboard />} />
               <Route path="/Clients" element={<Clients />} />
@@ -73,20 +75,26 @@ function App() {
               <Route path="/Livreurs" element={<Livreurs />} />
               <Route path="/AddOrders" element={<AddOrders />} />
               <Route path="/AddMarchand" element={<AddMarchand />} />
-              <Route path="/AddLivreur" element={<AddLivreur/>} />         
+              <Route path="/AddLivreur" element={<AddLivreur />} />
               <Route path="/client-account/:id" element={<MerchantAccount />} />
+              <Route path="/EditOrder/:id" element={<EditOrder />} />
             </>
           )}
 
-          {/* Routes للموزع */}
-          {user.role === "livreur" && (
-            <Route path="/MyMissions" element={<MyMissions />} />
+          {userRole === "livreur" && (
+            <>
+              {/* ✅ إصلاح typo: "dahboard" → "dashboard" */}
+              <Route path="/dashboard" element={<LivreurDashboard />} />
+              <Route path="/MyMissions" element={<MyMissions />} />
+              <Route path="/historique" element={<Historique />} />
+            </>
           )}
 
-          {/* التوجيه التلقائي حسب الدور */}
-          <Route 
-            path="*" 
-            element={<Navigate to={user.role === "admin" ? "/" : "/MyMissions"} replace />} 
+          <Route
+            path="*"
+            element={
+              <Navigate to={userRole === "admin" ? "/" : "/MyMissions"} replace />
+            }
           />
         </Routes>
       </div>

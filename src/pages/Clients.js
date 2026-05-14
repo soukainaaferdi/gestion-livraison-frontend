@@ -9,16 +9,22 @@ const Clients = () => {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
-
+    const getAuthConfig = () => {
+        const token = localStorage.getItem("token");
+        return {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+    };
     // الرابط ديال Laravel API
     const API_URL = "http://127.0.0.1:8000/api";
 
     useEffect(() => {
         const fetchData = async () => {
+            const config = getAuthConfig();
             try {
                 const [resClients, resOrders] = await Promise.all([
-                    axios.get(`${API_URL}/clients`),
-                    axios.get(`${API_URL}/orders`)
+                    axios.get(`${API_URL}/clients`, config),
+                    axios.get(`${API_URL}/orders`, config)
                 ]);
                 setClients(resClients.data);
                 setOrders(resOrders.data);
@@ -31,45 +37,58 @@ const Clients = () => {
         fetchData();
     }, []);
 
-    const handleDeleteClient = (id) => {
-        if (window.confirm("واش متأكد بغيتي تمسح هاد مول السلعة؟")) {
-            axios.delete(`${API_URL}/clients/${id}`)
-                .then(() => {
-                    setClients(clients.filter(c => c.id !== id));
-                    alert("تم الحذف بنجاح ✅");
-                })
-                .catch(err => console.error("Erreur suppression:", err));
-        }
-    };
+ const handleDeleteClient = (id) => {
+    // كنزيدو تأكيد باش المستخدم ما يمسحش بالغلط
+    if (window.confirm("واش متأكد بغيتي تمسح هاد المارشان؟ راه كاع المعلومات ديالو غتطير.")) {
+        axios.delete(`${API_URL}/clients/${id}`, getAuthConfig())
+            .then(() => {
+                // أهم خطوة: كنحيدو المارشان من الـ State بلا ما نضطرو نكاريجيو الصفحة
+                setClients(prevClients => prevClients.filter(c => c.id !== id));
+                
+                // (إختياري) إيلا بغيتي تمسح حتى الـ orders اللي مرتبطين بيه من الـ state
+                setOrders(prevOrders => prevOrders.filter(o => o.client_id !== id));
+                
+                alert("تم الحذف بنجاح");
+            })
+            .catch(err => {
+                console.error("Erreur suppression:", err);
+                alert("وقع خطأ، غالباً هاد المارشان مرتبط بطلبيات مكنقدروش نمسحوه.");
+            });
+    }
+};
 
     // حساب الديون بناءً على سّميات Laravel (prix_total, client_id, statut)
-    const calculateDebt = (clientId) => {
-        return orders
-            .filter(o => o.client_id === clientId && o.statut === "livre" && !o.is_paid)
-            .reduce((sum, o) => sum + Number(o.prix_total), 0);
-    };
+   // الكود الجديد (الصحيح)
+const calculateDebt = (clientId) => {
+    return orders
+        .filter(o => o.client_id === clientId && o.statut === "livre" && !o.is_paid)
+        .reduce((sum, o) => sum + Number(o.prix_marchandise), 0); // ✅ دابا كيجمع غير ثمن السلعة
+};
 
-    const handleQuickPay = async (clientId) => {
-        const amount = calculateDebt(clientId);
-        if (amount === 0) return alert("هذا التاجر ليس لديه مبالغ مستحقة");
 
-        if (window.confirm(`هل تؤكد دفع مبلغ ${amount} DH للتاجر؟`)) {
-            try {
-                const clientOrders = orders.filter(o => o.client_id === clientId && o.statut === "livre" && !o.is_paid);
-                const promises = clientOrders.map(o => 
-                    axios.patch(`${API_URL}/orders/${o.id}`, { is_paid: true })
-                );
-                await Promise.all(promises);
-                alert("تم تسجيل الدفع بنجاح ✅");
-                
-                // تحديث البيانات من السيرفر
-                const resOrders = await axios.get(`${API_URL}/orders`);
-                setOrders(resOrders.data);
-            } catch (err) {
-                alert("حدث خطأ أثناء التحديث");
-            }
+   const handleQuickPay = async (clientId) => {
+    const amount = calculateDebt(clientId);
+    
+    if (amount === 0) return alert("هذا التاجر ليس لديه مبالغ مستحقة");
+
+    if (window.confirm(`هل تؤكد دفع مبلغ ${amount} DH لهذا التاجر فقط؟`)) {
+        const config = getAuthConfig();
+        try {
+            // كنعطيو الـ ID ديال المارشان اللي بركنا على البوطون ديالو
+            await axios.post(`${API_URL}/clients/${clientId}/settle`,{},config);
+            
+            alert("تم تسجيل الدفع وتصفير الحساب بنجاح");
+            
+            // كنعاودو نجيبو Orders باش يتحدث الصولد في الشاشة ويبان 0 DH
+            const resOrders = await axios.get(`${API_URL}/orders`,config );
+            setOrders(resOrders.data);
+            
+        } catch (err) {
+            console.error("Erreur detail:", err);
+            alert("حدث خطأ أثناء التحديث");
         }
-    };
+    }
+};
 
     // البحث باستعمال nom_complet و telephone
     const filteredClients = clients.filter(client => 
@@ -92,7 +111,7 @@ const Clients = () => {
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     </div>
-                    <Link to="/AddMarchand" className="btn btn-primary fw-bold px-4">+ Nouveau</Link>
+                    <Link to="/AddMarchand" className="btn btn-success fw-bold px-4">+ Nouveau</Link>
                 </div>
 
                 <table className="table table-hover align-middle">

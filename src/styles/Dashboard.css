@@ -23,16 +23,33 @@
     color: var(--slate-800);
 }
 
-/* Stats Cards */
+/* احذف background: white من stat-card */
 .stat-card {
-    background: white;
     border-radius: 20px;
     padding: 24px;
     border: 1px solid rgba(226, 232, 240, 0.6);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s;
+    /* ماعدناش background هنا */
 }
 
+/* كل card بلونها */
+.stat-indigo { background: #eef2ff; border-color: #c7d2fe; }
+.stat-emerald { background: #ecfdf5; border-color: #a7f3d0; }
+.stat-amber { background: #fffbeb; border-color: #fde68a; }
+.stat-rose { background: #fff1f2; border-color: #fecdd3; }
+
+/* icon box - خلفيتو أغمق شوية من لون الcard */
+.bg-soft-indigo { background: #c7d2fe; }
+.bg-soft-emerald { background: #6ee7b7; }
+.bg-soft-amber { background: #fcd34d; }
+.bg-soft-rose { background: #fda4af; }
+
+/* icons - لون غامق */
+.text-indigo { color: #4338ca; }
+.text-emerald { color: #059669; }
+.text-amber { color: #d97706; }
+.text-rose { color: #e11d48; }
 .stat-card:hover {
     transform: translateY(-5px);
 }
@@ -69,9 +86,11 @@
 .main-card {
     background: white;
     border-radius: 24px;
-    padding: 30px;
+    padding: 20px; /* بدل 10px */
     border: 1px solid rgba(226, 232, 240, 0.8);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
 }
 
 /* Performance List */
@@ -145,3 +164,18 @@
     transition: 0.3s;
 }
 .btn-indigo-light:hover { background: var(--indigo); color: white; }
+.chart-container {
+    width: 100%;
+    height: 320px;
+    display: flex;
+    align-items: flex-end;
+}
+.chart-wrapper {
+    width: 100%;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+  
+}
+
+

@@ -1,0 +1,156 @@
+/* ===== Historique.css ===== */
+
+/* ===== STATUT BADGE ===== */
+.statut-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 50px;
+    letter-spacing: 0.3px;
+    margin-bottom: 12px;
+}
+
+.statut-badge.livre {
+    background: #ecfdf5;
+    color: #059669;
+    border: 1px solid #6ee7b7;
+}
+
+.statut-badge.annule {
+    background: #fff1f2;
+    color: #e11d48;
+    border: 1px solid #fda4af;
+}
+
+.statut-badge.retour {
+    background: #eef2ff;
+    color: #4338ca;
+    border: 1px solid #c7d2fe;
+}
+
+/* ===== CARD ===== */
+.mission-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+}
+
+.mission-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.12);
+}
+
+/* ===== FIELDS — label رفيع + قيمة غليظة سوداء ===== */
+.mission-card p {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.mission-card p strong {
+    font-weight: 400;
+    font-size: 11px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 4px;
+}
+
+/* ===== PRODUCT NAME ===== */
+.product-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 14px !important;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 6px 0;
+}
+
+.product-name strong {
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    color: #94a3b8 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 4px;
+}
+
+/* ===== PRIX ===== */
+.price-tag {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 14px !important;
+    font-weight: 700;
+    color: #059669;
+    margin-top: 8px;
+}
+
+.price-tag strong {
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    color: #94a3b8 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 4px;
+}
+
+/* ===== DATE ===== */
+.history-date {
+    font-size: 10px;
+    color: #94a3b8;
+    background: #f8fafc;
+    padding: 3px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+/* ===== INPUT + SELECT صغار ===== */
+.form-control {
+    height: 34px !important;
+    font-size: 13px !important;
+    padding: 0 10px !important;
+}
+
+.form-select {
+    height: 34px !important;
+    font-size: 13px !important;
+    padding: 0 8px !important;
+    width: 130px !important;
+}
+
+/* ===== 3 CARDS F SF ===== */
+.row.gx-4.gy-4 {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .col-lg-4 {
+        width: 100% !important;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .content-padding {
+        padding: 16px 12px;
+    }
+}
+
+.row.g-3 {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+}

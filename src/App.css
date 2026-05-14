@@ -37,4 +37,43 @@
   to {
     transform: rotate(360deg);
   }
+}/* ستايل القائمة التحتانية لليفرور */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 75px;
+  background-color: #ffffff; /* بيضاء كفما بغيتي */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* زدت هاد الظل باش تبان مفروزة على الصفحة */
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08); 
+  z-index: 1000;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.nav-item {
+  color: #b7b2b9; /* الكتابة والأيقونات بالبنفسجي */
+  text-decoration: none;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* ملي يبرك على شي خانة (Active) */
+.nav-item.active {
+  color: #9bf338; /* نخلي الأخضر غير للتحديد باش يعرف فين كاين */
+  transform: translateY(-5px); /* تحرك شوية للفوق كتجي زوينة */
+}
+
+/* أيقونات السايدبار */
+.nav-icon {
+  font-size: 22px;
+  margin-bottom: 4px;
 }

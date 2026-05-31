@@ -1,0 +1,94 @@
+.marchand-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 220px;
+    background: #ffffff;
+    border-right: 1.5px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+    z-index: 1000;
+    box-shadow: 2px 0 8px rgba(99,102,241,0.06);
+}
+
+.marchand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 8px;
+    margin-bottom: 32px;
+}
+
+.marchand-logo span {
+    font-size: 1.2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #7c3aed, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 1px;
+}
+
+.marchand-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.marchand-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.marchand-nav-item i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.marchand-nav-item:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+.marchand-nav-item.active {
+    background: #eef2ff;
+    color: #6366f1;
+    font-weight: 700;
+}
+
+.marchand-nav-item.active i {
+    color: #6366f1;
+}
+
+.marchand-logout {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: none;
+    background: none;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.marchand-logout:hover {
+    background: #fff1f2;
+    color: #e11d48;
+}

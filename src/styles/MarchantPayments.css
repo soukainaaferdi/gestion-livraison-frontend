@@ -1,0 +1,402 @@
+/* =========================
+   GLOBAL
+========================= */
+:root{
+    --bg1:#f8faff;
+    --bg2:#f4f7fc;
+
+    --primary:#6366f1;
+    --primary-soft:#eef2ff;
+
+    --emerald:#10b981;
+    --emerald-soft:#ecfdf5;
+
+    --amber:#f59e0b;
+    --amber-soft:#fffbeb;
+
+    --rose:#ef4444;
+    --rose-soft:#fff1f2;
+
+    --text:#0f172a;
+    --muted:#64748b;
+
+    --card:rgba(255,255,255,0.75);
+}
+
+/* =========================
+   WRAPPER (IMPORTANT FOR SIDEBAR)
+========================= */
+.md-wrapper{
+    min-height:100vh;
+
+    margin-left:260px;
+    width:calc(100% - 260px);
+
+    padding:32px;
+
+   
+
+    box-sizing:border-box;
+
+    font-family:'Inter','Segoe UI',sans-serif;
+
+    overflow-x:hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+.md-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:28px;
+}
+
+.md-header h4{
+    margin:0;
+
+    font-size:30px;
+    font-weight:900;
+
+    color:var(--text);
+
+    letter-spacing:-1px;
+}
+
+.md-header p{
+    margin:6px 0 0 0;
+
+    color:var(--muted);
+
+    font-size:14px;
+}
+
+.md-date-badge{
+    background:white;
+
+    border:1px solid #e5e7eb;
+
+    padding:10px 14px;
+
+    border-radius:12px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:var(--muted);
+
+    box-shadow:0 6px 20px rgba(0,0,0,0.04);
+}
+
+/* =========================
+   CARDS GRID
+========================= */
+.md-cards{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:18px;
+
+    margin-bottom:24px;
+}
+
+/* CARD */
+.md-card{
+    background:var(--card);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,0.6);
+
+    border-radius:22px;
+
+    padding:22px;
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,0.05);
+
+    transition:0.25s ease;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.md-card:hover{
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 18px 50px rgba(99,102,241,0.12);
+}
+
+/* ICON */
+.md-card-icon{
+    width:54px;
+    height:54px;
+
+    border-radius:16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+
+    font-size:1.3rem;
+}
+
+/* COLORS */
+.icon-indigo{
+    background:linear-gradient(135deg,#6366f1,#4f46e5);
+}
+
+.icon-emerald{
+    background:linear-gradient(135deg,#10b981,#059669);
+}
+
+.icon-amber{
+    background:linear-gradient(135deg,#f59e0b,#d97706);
+}
+
+.icon-rose{
+    background:linear-gradient(135deg,#ef4444,#b91c1c);
+}
+
+.md-card-label{
+    margin-top:14px;
+
+    font-size:12px;
+
+    color:var(--muted);
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:0.6px;
+}
+
+.md-card-val{
+    margin:6px 0 0 0;
+
+    font-size:1.9rem;
+
+    font-weight:900;
+
+    color:var(--text);
+
+    letter-spacing:-1px;
+}
+
+/* =========================
+   BALANCE BANNER
+========================= */
+.md-balance-banner{
+    border-radius:26px;
+
+    padding:26px 30px;
+
+    margin-bottom:24px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    color:white;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.md-balance-banner.pending{
+    background:linear-gradient(135deg,#6366f1,#4338ca);
+}
+
+.md-balance-banner.cleared{
+    background:linear-gradient(135deg,#10b981,#059669);
+}
+
+.md-banner-title{
+    font-size:12px;
+
+    opacity:0.85;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+}
+
+.md-banner-amount{
+    font-size:2.8rem;
+
+    font-weight:900;
+
+    margin:6px 0 0 0;
+}
+
+/* =========================
+   SECTION
+========================= */
+.md-section{
+    background:var(--card);
+
+    backdrop-filter:blur(14px);
+
+    border-radius:24px;
+
+    padding:24px;
+
+    border:1px solid rgba(255,255,255,0.6);
+
+    box-shadow:0 10px 30px rgba(15,23,42,0.05);
+}
+
+.md-section-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:18px;
+}
+
+.md-section-title{
+    font-size:18px;
+
+    font-weight:900;
+
+    color:var(--text);
+
+    margin:0;
+}
+
+.md-section-count{
+    background:var(--primary-soft);
+
+    color:var(--primary);
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+/* =========================
+   TABLE (VERY IMPORTANT)
+========================= */
+.md-table-container{
+    overflow-x:auto;
+}
+
+.md-table{
+    width:100%;
+
+    border-collapse:separate;
+
+    border-spacing:0 10px;
+}
+
+.md-table thead th{
+    text-align:left;
+
+    font-size:12px;
+
+    color:var(--muted);
+
+    padding:12px 14px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+}
+
+.md-table tbody tr{
+    background:white;
+
+    box-shadow:0 6px 18px rgba(0,0,0,0.04);
+
+    transition:0.2s ease;
+}
+
+.md-table tbody tr:hover{
+    transform:scale(1.01);
+
+    box-shadow:0 12px 30px rgba(99,102,241,0.12);
+}
+
+.md-table tbody td{
+    padding:16px;
+
+    border:none;
+
+    color:var(--text);
+
+    font-size:14px;
+}
+
+.md-table tbody td:first-child{
+    border-radius:16px 0 0 16px;
+}
+
+.md-table tbody td:last-child{
+    border-radius:0 16px 16px 0;
+}
+
+/* =========================
+   BADGES
+========================= */
+.status-badge{
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    font-weight:800;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+.md-empty{
+    padding:60px;
+
+    text-align:center;
+
+    color:var(--muted);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width:1200px){
+    .md-cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:992px){
+    .md-wrapper{
+        margin-left:0;
+        width:100%;
+    }
+}
+
+@media(max-width:768px){
+    .md-cards{
+        grid-template-columns:1fr;
+    }
+
+    .md-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:14px;
+    }
+}

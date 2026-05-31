@@ -14,6 +14,12 @@ import SidebarLivreur from "./components/sidebarLivreur";
 import Historique from "./pages/historique";
 import LivreurDashboard from "./pages/DashboarLivreur";
 import EditOrder from "./pages/EditOrder";
+import PrintRecu from "./pages/ProntRecu";
+import MarchandDashboard from "./pages/MarchandDashboard";
+import MarchandCommandes from "./pages/MarchandCommandes";
+import SidebarMarchand from "./components/SidebarMarchand";
+import MarchandAddOrder from "./pages/MarchandAddOrder";
+import MarchandPayments from "./pages/MarchandPayments";
 function App() {
   const token = localStorage.getItem("token");
   const userData = localStorage.getItem("user");
@@ -40,7 +46,7 @@ function App() {
   const userRole = user?.role;
 
   // ✅ إذا الرول مش معروف، رجعه للـ login
-  if (userRole !== "admin" && userRole !== "livreur") {
+ if (userRole !== "admin" && userRole !== "livreur" && userRole !== "marchand") {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     return (
@@ -52,8 +58,8 @@ function App() {
   }
 
   return (
-    <div className={userRole === "admin" ? "d-flex" : "block"}>
-      {userRole === "admin" ? <Sidebar /> : <SidebarLivreur />}
+    <div className={userRole === "admin" ? "d-flex": userRole === "marchand" ? "d-flex" :  "block"}>
+      {userRole === "admin" ? <Sidebar /> : userRole === "livreur" ? <SidebarLivreur /> : <SidebarMarchand />}
       <div
         className={`main-content ${userRole === "admin" ? "admin-layout" : "livreur-layout"}`}
         style={{
@@ -78,6 +84,7 @@ function App() {
               <Route path="/AddLivreur" element={<AddLivreur />} />
               <Route path="/client-account/:id" element={<MerchantAccount />} />
               <Route path="/EditOrder/:id" element={<EditOrder />} />
+              <Route path="/recu" element={<PrintRecu />} />
             </>
           )}
 
@@ -89,11 +96,19 @@ function App() {
               <Route path="/historique" element={<Historique />} />
             </>
           )}
-
+{userRole === "marchand" && (
+    <>
+        <Route path="/marchand/dashboard" element={<MarchandDashboard />} />
+        <Route path="/marchand/commandes" element={<MarchandCommandes />} />
+        <Route path="/marchand/add-order" element={<MarchandAddOrder />} />
+        <Route path="/marchand/payments" element={<MarchandPayments />} />
+        {/* <Route path="/marchand/profile" element={<MarchandProfile />} /> */}
+    </>
+)}
           <Route
             path="*"
             element={
-              <Navigate to={userRole === "admin" ? "/" : "/MyMissions"} replace />
+              <Navigate to={userRole === "admin" ? "/" : userRole === "livreur" ?"/MyMissions":"/marchand/dashboard"} replace />
             }
           />
         </Routes>

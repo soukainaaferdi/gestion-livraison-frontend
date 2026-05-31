@@ -65,7 +65,7 @@ const AddOrders = () => {
                     
                     {/* Choisir le vendeur */}
                     <div className="mb-4 p-3 " style={{borderRadius: '10px'}}>
-                        <label className="fw-bold mb-2">Choisir le vendeur</label>
+                        <label className="fw-bold mb-2">Choisir le Marchand</label>
                         <select name="client_id" className="form-select" value={formData.client_id} onChange={handleChange} required>
                             <option value="">-- Choisir dans la liste --</option>
                             {marchands.map(m => (
@@ -86,22 +86,17 @@ const AddOrders = () => {
                     </div>
 
                     <div className="mb-3">
-                        <label className="fw-bold">Produit / Marchandise</label>
+                        <label className="fw-bold">Produit </label>
                         <input type="text" name="produit" className="form-control" onChange={handleChange} required />
                     </div>
 
                     <div className="row">
-                        <div className="col-md-6 mb-3">
-                            <label className="fw-bold">Zone de livraison</label>
-                            <select name="destination_zone" className="form-select" onChange={handleChange} required>
-                                <option value="">-- Choisir la zone --</option>
-                                <option value="Ain Sebaa">Ain Sebaa</option>
-                                <option value="Maarif">Maarif</option>
-                                <option value="Sidi Bernoussi">Sidi Bernoussi</option>
-                                <option value="Oulfa">Oulfa</option>
-                                {/* زيدي المناطق اللي عندك هنا */}
-                            </select>
-                        </div>
+                      <div className="col-md-6 mb-3">
+    <label className="fw-bold">Zone de livraison</label>
+    <input type="text" name="destination_zone" className="form-control"
+        placeholder="Ex: Ain Sebaa, Maarif..."
+        onChange={handleChange} required />
+</div>
                         <div className="col-md-6 mb-3">
                             <label className="fw-bold">Priorité</label>
                             <select name="priority" className="form-select" onChange={handleChange}>
@@ -113,11 +108,11 @@ const AddOrders = () => {
                     </div>
                           <div className="row">
                         <div className="col-md-6 mb-3">
-                            <label className="fw-bold">Prix marchandise (DH)</label>
+                            <label className="fw-bold">Prix marchandise DH</label>
                             <input type="number" name="prix_marchandise" className="form-control" onChange={handleChange} required />
                         </div>
                         <div className="col-md-6 mb-3">
-                            <label className="fw-bold">Prix </label>
+                            <label className="fw-bold">Frais de livraison </label>
                             <input type="number" name="frais_livraison" className="form-control" onChange={handleChange} required />
                         </div>
                         </div>

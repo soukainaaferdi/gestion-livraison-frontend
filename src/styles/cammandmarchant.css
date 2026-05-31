@@ -184,3 +184,16 @@
 .badge-status.assigned { background: #e0e7ff; color: #4338ca; }
 .badge-status.pending { background: #f1f5f9; color: #475569; }
 .badge-status.cancelled { background: #fee2e2; color: #b91c1c; }
+.orders-container {
+    padding: 2rem;
+    min-height: 100vh;
+
+    margin-left: 220px;
+    width: calc(100% - 250px);
+
+    box-sizing: border-box;
+}
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+}

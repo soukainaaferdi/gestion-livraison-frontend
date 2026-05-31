@@ -40,22 +40,25 @@ const MerchantAccount = () => {
 
   return (
     <div className="container mt-4">
-      <div className="  " style={{borderRadius: '15px'}}>
-          <div className="d-flex justify-content-between align-items-center">
-             <h3 className="fw-bold m-0 "> Commandes du client : {merchant.nom_complet || merchant.name}</h3>
-             <span className="badge text-dark fs-6 px-3 py-2" style={{borderRadius: '10px'}}>{orders.length} commandes</span>
-          </div>
-      </div>
+     
 
       <div className="table-responsive">
-        <table className="table table-hover bg-white shadow-sm" style={{borderRadius: '15px', overflow: 'hidden'}}>
+       <table className="table table-hover merchant-table">
           <thead className="table-dark">
-            <tr>
+               <tr>
+                <th colSpan="7" className="py-3 px-4">
+                    <div className="d-flex justify-content-between align-items-center">
+                        <span>Commandes du Marchand : {merchant.nom_complet || merchant.name}</span>
+                        <span className="orders-count-badge">{orders.length} commandes</span>
+                    </div>
+                </th>
+            </tr>
+            <tr style={{ background: '#334155' }}>
               <th>ID</th>
-              <th>Nom</th>
               <th>Destinataire</th>
+              <th>Adresse</th>
               <th>Produit</th>
-              <th>Prix (DH)</th>
+              <th>Prix  </th>
               <th>Statut</th>
               <th>Date</th>
             </tr>
@@ -69,14 +72,13 @@ const MerchantAccount = () => {
                 <td>{o.produit}</td>
                 <td className="fw-bold text-success">{o.prix_marchandise} DH</td>
                 <td>
-                  <span className={`badge ${
-                    o.statut === 'livre' ? 'success' : 
-                    o.statut === 'annule' ? 'danger' : 
-                    o.statut === 'assigne' ? 'info' : 'bg-warning text-dark'
-
-                  }`}>
-                      {o.statut} 
-                  </span>
+                 <span className={`statut-badge ${o.statut}`}>
+    {o.statut === 'livre' ? 'Livré' :
+     o.statut === 'assigne' ? 'Assigné' :
+     o.statut === 'en_attente' ? 'En attente' :
+     o.statut === 'retour' ? 'Retour' :
+     'Annulé'}
+</span>
                 </td>
                 <td className="small text-muted">{new Date(o.created_at).toLocaleDateString()}</td>
               </tr>

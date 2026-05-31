@@ -39,7 +39,7 @@ const Clients = () => {
 
  const handleDeleteClient = (id) => {
     // كنزيدو تأكيد باش المستخدم ما يمسحش بالغلط
-    if (window.confirm("واش متأكد بغيتي تمسح هاد المارشان؟ راه كاع المعلومات ديالو غتطير.")) {
+if (window.confirm("Êtes-vous sûr de vouloir supprimer ce marchand ?")) {
         axios.delete(`${API_URL}/clients/${id}`, getAuthConfig())
             .then(() => {
                 // أهم خطوة: كنحيدو المارشان من الـ State بلا ما نضطرو نكاريجيو الصفحة
@@ -48,11 +48,11 @@ const Clients = () => {
                 // (إختياري) إيلا بغيتي تمسح حتى الـ orders اللي مرتبطين بيه من الـ state
                 setOrders(prevOrders => prevOrders.filter(o => o.client_id !== id));
                 
-                alert("تم الحذف بنجاح");
+                alert("Marchand supprimé avec succès");
             })
             .catch(err => {
                 console.error("Erreur suppression:", err);
-                alert("وقع خطأ، غالباً هاد المارشان مرتبط بطلبيات مكنقدروش نمسحوه.");
+                 alert("Ce marchand est lié à des commandes, impossible de le supprimer.");
             });
     }
 };
@@ -69,15 +69,15 @@ const calculateDebt = (clientId) => {
    const handleQuickPay = async (clientId) => {
     const amount = calculateDebt(clientId);
     
-    if (amount === 0) return alert("هذا التاجر ليس لديه مبالغ مستحقة");
+    if (amount === 0) return alert("Ce marchand n'a aucun montant dû");
 
-    if (window.confirm(`هل تؤكد دفع مبلغ ${amount} DH لهذا التاجر فقط؟`)) {
+   if (window.confirm(`Confirmer le paiement de ${amount} DH pour ce marchand ?`)) {
         const config = getAuthConfig();
         try {
             // كنعطيو الـ ID ديال المارشان اللي بركنا على البوطون ديالو
             await axios.post(`${API_URL}/clients/${clientId}/settle`,{},config);
             
-            alert("تم تسجيل الدفع وتصفير الحساب بنجاح");
+            alert("Paiement enregistré avec succès");
             
             // كنعاودو نجيبو Orders باش يتحدث الصولد في الشاشة ويبان 0 DH
             const resOrders = await axios.get(`${API_URL}/orders`,config );
@@ -85,7 +85,7 @@ const calculateDebt = (clientId) => {
             
         } catch (err) {
             console.error("Erreur detail:", err);
-            alert("حدث خطأ أثناء التحديث");
+            alert("Une erreur s'est produite lors de la mise à jour");
         }
     }
 };
@@ -111,7 +111,7 @@ const calculateDebt = (clientId) => {
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     </div>
-                    <Link to="/AddMarchand" className="btn btn-success fw-bold px-4">+ Nouveau</Link>
+                    <Link to="/AddMarchand" className="btn btn-success fw-bold px-4">+ Nouveau Marchand</Link>
                 </div>
 
                 <table className="table table-hover align-middle">
@@ -120,7 +120,7 @@ const calculateDebt = (clientId) => {
                             <th className="ps-3">ID</th>
                             <th>Nom du Marchand</th>
                             <th>Téléphone</th>
-                            <th className="text-center">Solde à Payer</th>
+                            <th className="text-center">Solde à  Régler </th>
                             <th className="text-center">Actions</th>
                         </tr>
                     </thead>
@@ -145,7 +145,7 @@ const calculateDebt = (clientId) => {
                                             disabled={debt === 0}
                                             onClick={() => handleQuickPay(client.id)}
                                         >
-                                            Payer
+                                          Régler 
                                         </button>
                                     </td>
                                     <td className="text-center">
@@ -154,13 +154,13 @@ const calculateDebt = (clientId) => {
                                             <ul className="dropdown-menu dropdown-menu-end shadow border-0">
                                                 <li>
                                                     <Link to={`/client-account/${client.id}`} className="dropdown-item text-info">
-                                                        VOIR DÉTAILS
+                                                         Voir Détails  
                                                     </Link>
                                                 </li>
                                                 <li><hr className="dropdown-divider" /></li>
                                                 <li>
                                                     <button className="dropdown-item text-danger" onClick={() => handleDeleteClient(client.id)}>
-                                                        SUPPRIMER
+                                                        Supprimer 
                                                     </button>
                                                 </li>
                                             </ul>

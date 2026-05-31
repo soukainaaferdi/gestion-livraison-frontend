@@ -38,34 +38,61 @@ const History = () => {
                 <span className="user-email-display">{user.email}</span>
             </header>
             
-            <div className="content-padding">
-                <div style={{ display: 'flex', gap: '10px', marginBottom: '16px' }}>
+            <div style={{ marginBottom: '16px', display: 'flex', gap: '8px', alignItems: 'center',  }}>
+    {/* Search - sghira */}
     <input
         type="text"
-        placeholder="Rechercher produit / destination..."
+        placeholder=" Rechercher..."
         className="form-control"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
+        style={{
+            borderRadius: '50px',
+            border: '1.5px solid #c7d2fe',
+            padding: '6px 14px',
+            fontSize: '0.82rem',
+            width: '500px',
+            boxShadow: 'none'
+        }}
     />
-    <select
-        className="form-select"
-        style={{ width: '160px' }}
-        value={statusFilter}
-        onChange={(e) => setStatusFilter(e.target.value)}
-    >
-        <option value="all">Tous</option>
-        <option value="livre">Livré</option>
-        <option value="annule">Annulé</option>
-        <option value="retour">Retour</option>
-    </select>
-</div>
-                <div className="row g-3 ">
+
+    {/* Filter buttons — nfs str */}
+    {[
+        { val: 'all', label: 'Tous', bg: '#f1f5f9', color: '#64748b', border: '#e2e8f0' },
+        { val: 'livre', label: ' Livré', bg: '#ecfdf5', color: '#059669', border: '#6ee7b7' },
+        { val: 'annule', label: ' Annulé', bg: '#fff1f2', color: '#e11d48', border: '#fecdd3' },
+        { val: 'retour', label: ' Retour', bg: '#f1f5f9', color: '#475569', border: '#cbd5e1' },
+    ].map(btn => (
+        <button
+            key={btn.val}
+            onClick={() => setStatusFilter(btn.val)}
+            style={{
+                background: statusFilter === btn.val ? btn.color : btn.bg,
+                color: statusFilter === btn.val ? '#ffffff' : btn.color,
+                border: `1.5px solid ${btn.border}`,
+                borderRadius: '50px',
+                padding: '6px 14px',
+                fontSize: '0.82rem',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                whiteSpace: 'nowrap'
+            }}
+        >
+            {btn.label}
+        </button>
+    ))}
+</div><div className="cards-container">
+    <div className="row g-3">
+        
+   
+                
                     {filtered.map(order => (
 
-                       <div className="col-lg-4 col-md-6 mission-card" key={order.id}>
-                                  
+                      <div className="col-lg-4 col-md-6" key={order.id}>
+    <div className="mission-card">
                               <span className="info-text fw-bold" style={{
-                                            color: order.statut === 'livre' ? '#198754' : 
+                                  color: order.statut === 'livre' ? '#198754' : 
                                                    order.statut === 'annule' ? '#dc3545' : '#7c3aed'
                                         }}>
                                            <span className={`statut-badge ${order.statut}`}>
@@ -92,10 +119,15 @@ const History = () => {
                                         </span>
                             </div>
                         
+                                  </div>
+                              
+                                                                
                     ))}
                 </div>
-            </div>
-        </div>
+                </div>
+                </div>
+            
+        
     );
 };
 export default History;

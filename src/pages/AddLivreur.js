@@ -63,15 +63,12 @@ const AddLivreur = () => {
                         <input type="text" className="form-control" 
                             onChange={(e) => setFormData({...formData, phone: e.target.value})} required />
                     </div>
-                    <div className="mb-3">
-                <label className="form-label">Zone de travail</label>
-                <select className="form-select" onChange={(e) => setFormData({...formData, zone: e.target.value})} required>
-                    <option value="">-- Sélectionner une zone --</option>
-                    <option value="Ain Sebaa">Ain Sebaa</option>
-                    <option value="Maarif">Maarif</option>
-                    <option value="Oulfa">Oulfa</option>
-                </select>
-            </div>
+                 <div className="mb-3">
+    <label className="form-label">Zone de travail</label>
+    <input type="text" className="form-control" 
+        placeholder="Ex: Ain Sebaa, Maarif, Oulfa..."
+        onChange={(e) => setFormData({...formData, zone: e.target.value})} required />
+</div>
                     <button type="submit" className="btn btn-primary w-100 fw-bold">Créer le compte</button>
                 </form>
             </div>

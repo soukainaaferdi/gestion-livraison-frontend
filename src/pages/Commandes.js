@@ -111,9 +111,9 @@ const Commandes = () => {
         <div className="orders-container">
             <div className="card border-0 shadow-sm p-4" style={{ borderRadius: '20px' }}>
                 <div className="d-flex justify-content-between align-items-center mb-4">
-                    <h2 className="fw-bold">Orders Management</h2>
+                    <h2 className="fw-bold">Gestion des Commandes</h2>
                     <Link className="btn btn-success shadow-sm" to="/AddOrders">
-                        <i className="bi bi-plus-lg me-2"></i>New Order
+                        <i className="bi bi-plus-lg me-2"></i>Nouvelle Commande
                     </Link>
                 </div>
 
@@ -141,6 +141,7 @@ const Commandes = () => {
                             <option value="assigne">Assigné</option>
                             <option value="livre">Livré</option>
                             <option value="annule">Annulé</option>
+                            <option value="retour">Retour</option> 
                         </select>
                     </div>
                 </div>
@@ -149,13 +150,13 @@ const Commandes = () => {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th>Order ID</th>
-                                <th>Nom</th>
+                                <th>N°</th>
+                                <th>Destinataire</th>
                                 <th>Produit</th>
                                 <th>Destination</th>
                                 <th>Prix Total</th>
-                                <th>Status</th>
-                                <th>Assigned To</th>
+                                <th>Statut</th>
+                                <th>Livreur</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -215,7 +216,7 @@ const Commandes = () => {
                                                         className="dropdown-item text-danger"
                                                         onClick={() => handleDelete(order.id)}
                                                     >
-                                                        <i className="bi bi-trash me-2"></i> Delete
+                                                        <i className="bi bi-trash me-2"></i> Supprimer
                                                     </button>
                                                 </li>
                                             </ul>

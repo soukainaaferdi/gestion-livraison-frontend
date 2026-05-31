@@ -39,7 +39,7 @@ const EditOrder = () => {
         try {
             // كانديرو التعديل غير على الحقول الأساسية
             await axios.patch(`${API_BASE}/orders/${id}`, formData, getAuthConfig());
-            alert("Informations mises à jour !");
+            alert("Commande modifiée avec succès !")
             navigate("/Commandes");
         } catch (err) {
             console.error(err);
@@ -50,7 +50,7 @@ const EditOrder = () => {
     return (
         <div className="container mt-5">
             <div className="card shadow-sm border-0 p-4" style={{ borderRadius: '15px' }}>
-                <h2 className="fw-bold mb-4">Modifier la Commande #{id}</h2>
+                <h2 className="fw-bold mb-4">Modifier la Commande </h2>
                 <form onSubmit={handleSubmit}>
                     <div className="row">
                         <div className="col-md-6 mb-3">
@@ -66,7 +66,7 @@ const EditOrder = () => {
                     </div>
 
                     <div className="mb-3">
-                        <label className="form-label fw-bold">Adresse de Destination</label>
+                        <label className="form-label fw-bold">Adresse  de Livraison</label>
                         <input type="text" name="destination" className="form-control" 
                                value={formData.destination} onChange={handleChange} required />
                     </div>
@@ -79,7 +79,7 @@ const EditOrder = () => {
 
                     <div className="d-flex gap-2">
                         <button type="submit" className="btn btn-primary px-4">
-                            Enregistrer
+                            Enregistrer les modifications
                         </button>
                         <button type="button" className="btn btn-light px-4" onClick={() => navigate("/Commandes")}>
                             Annuler

@@ -248,3 +248,53 @@
         padding: 16px 12px;
     }
 }
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(1.02); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.livreur-header {
+    background-color: #ffffff;
+    border-bottom: 2px solid #c7d2fe;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -20px -20px 20px -20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.08);
+}
+
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #7c3aed, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.user-email-display {
+    font-size: 13px;
+    color: #4338ca;
+    background: #eef2ff;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-weight: 500;
+    border: 1px solid #c7d2fe;
+}
+.notif-banner {
+    background: #7C3AED;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    text-align: center;
+    font-weight: bold;
+    animation: pulse 1s infinite;
+}
